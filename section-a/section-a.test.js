@@ -51,35 +51,41 @@ describe('Test a02, testing the subtract function', () => {
     });
 });
 
+
 // Section A 03. Test the divide() function
-// Feel free to delete all of the starter test block and make it better
 
 describe('Test a03, testing the divide function', () => {
     test("Division where the denominator is a factor of the numerator", () => {
-        let num1 = 25;
-        let num2 = 5;
-        var expected = 5;
-        var output = divide(num1, num2);
-        expect(output).toBe(expected);    
+        expect(divide(25, 5)).toBe(5);    
     });
     test("Division where the denominator is not a factor of the numerator", () => {
-        let num1 = 25;
-        let num2 = 6;
-        var expected = 4.17;
-        var output = divide(num1, num2);
-        expect(output).toBeCloseTo(expected);    
+        expect(divide(25, 6)).toBeCloseTo(4.17);    
     });
     test("Division by 0", () => {
         expect(() => {
-            let num1 = 25;
-            let num2 = 0;
-            divide(num1, num2)})
-        .toThrow('The value 0 cannot be used as the denominator');
-    });
+            divide(25, 0)
+        }).toThrow('The value 0 cannot be used as the denominator');
+    })    
 });
+
+
 
 // Section A 04. Test the isDivisibleBy() function
 
+describe('Test a04, testing the isDivisibleBy() function', () => {
+    test("Two positive numbers which are both factors", () => {
+        expect(isDivisibleBy(20, 5, 4)).toBeTruthy();
+    });
+    test("Two positive numbers which are not both factors", () => {
+        expect(isDivisibleBy(20, 5, 3)).toBeFalsy();
+    });
+    test("Two numbers which are both factors", () => {
+        expect(isDivisibleBy(20, 5, -4)).toBeTruthy();
+    });
+    test("Two negetive numbers which are not both factors", () => {
+        expect(isDivisibleBy(20, -6, -3)).toBeFalsy();
+    });
+});
 // Section A 05. Test the areaOrPerimeter() function
 
 // Section A 06. Test the gradeAssignment() function
