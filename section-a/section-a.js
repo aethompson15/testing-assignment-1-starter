@@ -53,5 +53,7 @@ module.exports = {
     subtract,
     divide,
     isDivisibleBy,
-    disemvowel
+    disemvowel,
+    areaOrPerimeter,
+    gradeAssignment
 };

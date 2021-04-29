@@ -76,7 +76,7 @@ describe('Test a04, testing the isDivisibleBy() function', () => {
     test("Two positive numbers which are both factors", () => {
         expect(isDivisibleBy(20, 5, 4)).toBeTruthy();
     });
-    test("Two positive numbers which are not both factors", () => {
+    test("Two positive numbers where only one is a factor", () => {
         expect(isDivisibleBy(20, 5, 3)).toBeFalsy();
     });
     test("Two numbers which are both factors", () => {
@@ -86,9 +86,51 @@ describe('Test a04, testing the isDivisibleBy() function', () => {
         expect(isDivisibleBy(20, -6, -3)).toBeFalsy();
     });
 });
+
+
+//not working yet - not recognised as a function
 // Section A 05. Test the areaOrPerimeter() function
+describe('Test a05, testing the areaOrPerimeter() function', () => {
+    test("Two numbers that are the same - should return area, l*w", () => {
+        expect(areaOrPerimeter(5,5)).toBe(25);
+    });
+    test("Two numbers that are different - should return perimeter, 2(l+w)", () => {
+        expect(areaOrPerimeter(3,4)).toBe(14);
+    });
+});
+
 
 // Section A 06. Test the gradeAssignment() function
+describe('Test a06, testing the gradeAssignment() function', () => {
+    test("Testing with an average above 90", () => {
+        expect(gradeAssignment(91, 95, 99)).toBe('A');
+    });
+    test("Testing with an average between 80-89", () => {
+        expect(gradeAssignment(70, 85, 90)).toBe('B');
+    });
+    test("Testing with an average between 70-79", () => {
+        expect(gradeAssignment(71, 80, 73)).toBe('C');
+    });
+    test("Testing with an average between 60-69", () => {
+        expect(gradeAssignment(60, 65, 70)).toBe('D');
+    });
+    test("Testing with an average below 60", () => {
+        expect(gradeAssignment(30, 22, 6)).toBe('F');
+    });
+    test("Testing with non-numbers", () => {
+        expect(gradeAssignment('Grade')).toBe('');
+    });
+    test("Testing using 3 numbers above 100, should return A", () => {
+        expect(gradeAssignment(101, 150, 162)).toBe('A');
+    });
+    test("Testing using 3 negetive numbers, should return empty string", () => {
+        expect(gradeAssignment(-90, -93, -95)).toBe('');
+    });
+    test("Testing using floats, should return A", () => {
+        expect(gradeAssignment(90.5, 93.6, 95.6)).toBe('A');
+    });
+});
+
 
 // Section A 07. Test the disemvowel() function
 
