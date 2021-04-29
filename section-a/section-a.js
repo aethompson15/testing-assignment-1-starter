@@ -39,10 +39,10 @@ const gradeAssignment = (s1, s2, s3) => {
 const disemvowel = str => str.replace(/[aeiou]/gi, '');
 
 // A08
-const removeUrlAnchor = url => url.split('#')[0];
+const strEndsWith = (str, ending) => str.endsWith(ending);
 
 // A09
-const strEndsWith = (str, ending) => str.endsWith(ending);
+const removeUrlAnchor = url => url.split('#')[0];
 
 // A10
 const numberToString = num => num.toString();
@@ -55,5 +55,8 @@ module.exports = {
     isDivisibleBy,
     disemvowel,
     areaOrPerimeter,
-    gradeAssignment
+    gradeAssignment,
+    strEndsWith,
+    removeUrlAnchor,
+    numberToString
 };

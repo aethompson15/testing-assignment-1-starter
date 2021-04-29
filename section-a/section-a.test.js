@@ -5,7 +5,10 @@ const {
     isDivisibleBy,
     gradeAssignment,
     areaOrPerimeter,
-    disemvowel
+    disemvowel,
+    strEndsWith,
+    removeUrlAnchor,
+    numberToString
 } = require("./section-a.js");
 
 // Section A 01. Wrtite a smoke test
@@ -46,7 +49,7 @@ describe('Test a03, testing the divide function', () => {
         expect(() => {
             divide(25, 0)
         }).toThrow('The value 0 cannot be used as the denominator');
-    })    
+    });   
 });
 
 
@@ -132,8 +135,36 @@ describe('Test a07, testing the disemvowel() function', () => {
 });
 
 
-// Section A 08. Test the removeUrlAnchor() function
 
-// Section A 09. Test the strEndsWith() function
+// Section A 08. Test the strEndsWith() function
+describe('Test a08, testing the strEndsWith() function', () => {
+    test("Testing a string with the correct ending", () => {
+        expect(strEndsWith('hello world', 'world')).toBeTruthy();
+    });
+    test("Testing a string with the incorrect ending", () => {
+        expect(strEndsWith('hello world', 'wrong')).toBeFalsy();
+    });
+});
+
+// Section A 09. Test the removeUrlAnchor() function
+describe('Test a09, testing the removeUrlAnchor() function', () => {
+    test("Testing a url with no anchor", () => {
+        expect(removeUrlAnchor('https://mycool.website.com')).toBe('https://mycool.website.com');
+    });
+    test("Testing a url with an anchor", () => {
+        expect(removeUrlAnchor('https://mycool.website.com#a_super_cool_anchor')).toBe('https://mycool.website.com');
+    });
+});
+
 
 // Section A 10. Test the numberToString() function
+describe('Test a10, testing the numberToString() function', () => {
+    test("Testing a number", () => {
+        expect(numberToString(5)).toEqual('5');
+        expect(typeof numberToString(5)).toBe('string');
+    });
+    test("Testing a string", () => {
+        expect(numberToString('5')).toEqual('5');
+        expect(typeof numberToString(5)).toBe('string');
+    });
+});
