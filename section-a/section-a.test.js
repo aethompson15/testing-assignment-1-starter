@@ -4,7 +4,8 @@ const {
     divide, 
     isDivisibleBy,
     gradeAssignment,
-    areaOrPerimeter
+    areaOrPerimeter,
+    disemvowel
 } = require("./section-a.js");
 
 // Section A 01. Wrtite a smoke test
@@ -15,39 +16,19 @@ const {
 
 describe('Test a02, testing the subtract function', () => {
     test("Subtract 2 positive numbers, where the first parameter is larger than the second one", () => {
-        let num1 = 5;
-        let num2 = 1;
-        var expected = 4;
-        var output = subtract(num1, num2);
-        expect(output).toBe(expected);
+        expect(subtract(5, 1)).toBe(4);
     });
     test("Subtract 2 positive numbers, where the first parameter is smaller than the second one", () => {
-        let num1 = 3;
-        let num2 = 7;
-        var expected = -4;
-        var output = subtract(num1, num2);
-        expect(output).toBe(expected);
+        expect(subtract(3, 7)).toBe(-4);
     });
     test("Subtract 2 numbers, where the first parameter is a negetive number", () => {
-        let num1 = -1;
-        let num2 = 5;
-        var expected = -6;
-        var output = subtract(num1, num2);
-        expect(output).toBe(expected);
+        expect(subtract(-1, 5)).toBe(-6);
     });
     test("Subtract 2 negetive numbers, where the first parameter is larger than the second one", () => {
-        let num1 = -2;
-        let num2 = -1;
-        var expected = -1;
-        var output = subtract(num1, num2);
-        expect(output).toBe(expected);
+        expect(subtract(-2, -1)).toBe(-1);
     });
     test("Subtract 2 negetive numbers, where the first parameter is smaller than the second one", () => {
-        let num1 = -3;
-        let num2 = -7;
-        var expected = 4;
-        var output = subtract(num1, num2);
-        expect(output).toBe(expected);
+        expect(subtract(-3, -7)).toBe(4);
     });
 });
 
@@ -88,7 +69,6 @@ describe('Test a04, testing the isDivisibleBy() function', () => {
 });
 
 
-//not working yet - not recognised as a function
 // Section A 05. Test the areaOrPerimeter() function
 describe('Test a05, testing the areaOrPerimeter() function', () => {
     test("Two numbers that are the same - should return area, l*w", () => {
@@ -126,13 +106,31 @@ describe('Test a06, testing the gradeAssignment() function', () => {
     test("Testing using 3 negetive numbers, should return empty string", () => {
         expect(gradeAssignment(-90, -93, -95)).toBe('');
     });
-    test("Testing using floats, should return A", () => {
+    test("Testing using floats, should still return A", () => {
         expect(gradeAssignment(90.5, 93.6, 95.6)).toBe('A');
     });
 });
 
 
 // Section A 07. Test the disemvowel() function
+describe('Test a07, testing the disemvowel() function', () => {
+    test("Testing the function works as expected on a basic string", () => {
+        expect(disemvowel('hello world')).toBe('hll wrld');
+    });
+    test("Testing using a random string generator", () => {
+        var letters = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
+        var vowels = 'aeiouaeiou';
+        var randomString = [];
+        for(let i = 0; i < 10; i++){
+            randomString.push(letters[Math.floor(Math.random()*letters.length)]);
+            randomString.push(vowels[Math.floor(Math.random()*vowels.length)]);
+        }
+        let output = randomString.join('');
+        expect(disemvowel(output)).not.toMatch(/aeiouAEIOU/gi);
+        expect(disemvowel(output)).toHaveLength(10);
+    });
+});
+
 
 // Section A 08. Test the removeUrlAnchor() function
 
