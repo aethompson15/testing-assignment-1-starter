@@ -79,4 +79,15 @@ describe('Test b15, testing the countCharsInString()', () => {
         expect(typeof countCharsInString('hello world')).toBe('object');
         expect(typeof countCharsInString('hello world').o).toBe('number');
     });
+    test('Testing a string with both upper and lower case characters', () => {
+        expect(countCharsInString('HELLO hello').h).toEqual(1);
+        expect(countCharsInString('heLlo wOrld').l).toEqual(2);
+    });
+    test('Testing a string with non-alphabetic characters', () => {
+        let sillyString = '1234//?^';
+        let countChar1 = '^';
+        let countChar2 = '/';
+        expect(countCharsInString(sillyString)[countChar1]).toEqual(1);
+        expect(countCharsInString(sillyString)[countChar2]).toEqual(2);
+    });
 });

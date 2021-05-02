@@ -122,7 +122,7 @@ describe('Test a07, testing the disemvowel() function', () => {
     });
     test("Testing using a random string generator", () => {
         var letters = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
-        var vowels = 'aeiouaeiou';
+        var vowels = 'aeiouAEIOU';
         var randomString = [];
         for(let i = 0; i < 10; i++){
             randomString.push(letters[Math.floor(Math.random()*letters.length)]);

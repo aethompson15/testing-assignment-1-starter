@@ -1,6 +1,18 @@
 function mysteryFunction(x) {
-    // coding and coding here
-    return;
+    // prime=true, not=false
+    if(x === 2){
+        return true;
+    }
+    if(x < 2){
+        return false;
+    }
+    for(var i = 2; i < x; i++){
+        if(x % i === 0) {
+            return false;
+            break;
+        }
+    }
+    return true;
 }
 
 function mysteryFunction2(y) {
