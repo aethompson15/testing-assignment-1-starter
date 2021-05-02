@@ -67,3 +67,16 @@ describe('Test b14, testing the sortNumbers() function', () => {
 });
 
 //Test B15
+describe('Test b15, testing the countCharsInString()', () => {
+    test('Testing a string of length 1', () => {
+        expect(Object.values(countCharsInString('a'))[0]).toEqual(1);
+        expect(typeof countCharsInString('a')).toBe('object');
+        expect(typeof Object.values(countCharsInString('a'))[0]).toBe('number');
+    });
+    test('Testing a larger string', () => {
+        expect(countCharsInString('hello world').h).toEqual(1);
+        expect(countCharsInString('hello world').l).toEqual(3);
+        expect(typeof countCharsInString('hello world')).toBe('object');
+        expect(typeof countCharsInString('hello world').o).toBe('number');
+    });
+});
