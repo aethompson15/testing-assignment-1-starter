@@ -19,11 +19,17 @@ function mysteryFunction2(y) {
     if((y < 0) || (y > 12)){
         throw new Error("Out of range!");
     };
-    let result = y;
-    for(var i = y - 1; i <= 0; i--){
-        result += result * i;
+    if((y === 0) || (y === 1)){
+        return 1;
     };
-    return;
+    if(y === 2){
+        return 2;
+    };
+    let result = y;
+    for(var i = y - 1; i > 1; i--){
+        result = result * i;
+    };
+    return result;
 }
 
 module.exports = {

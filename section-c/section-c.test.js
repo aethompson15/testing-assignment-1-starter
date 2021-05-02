@@ -5,7 +5,7 @@ describe("Test the first Mystery Function", () => {
         expect(mysteryFunction(0)).toBeFalsy();
         expect(mysteryFunction(1)).toBeFalsy();
         expect(mysteryFunction(2)).toBeTruthy();
-        expect(mysteryFunction(3)).toBeTruthy();
+        expect(mysteryFunction(3)).toBe(true);
         expect(mysteryFunction(5)).toBe(true);
         expect(mysteryFunction(7)).toBe(true);
         expect(mysteryFunction(11)).toBeTruthy();
@@ -15,7 +15,6 @@ describe("Test the first Mystery Function", () => {
     });
 });
 
-/*
 describe("Test the second Mystery Function", () => {
     it("Returns a number", () => {
         expect(mysteryFunction2(0)).toBe(1);
@@ -38,10 +37,4 @@ describe("Test the second Mystery Function", () => {
             mysteryFunction2(100)
         }).toThrow("Out of range!");
     });
-}); */
-
-describe('Smoke', () => {
-    test('Smoke test', () => {
-        expect(2+2).toBe(4);
-    })
-});
+}); 
