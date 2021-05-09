@@ -33,6 +33,9 @@ describe('Test a02, testing the subtract function', () => {
     test("Subtract 2 negetive numbers, where the first parameter is smaller than the second one", () => {
         expect(subtract(-3, -7)).toBe(4);
     });
+    test("Subtract 2 numbers that are both the same", () => {
+        expect(subtract(5, 5)).toBe(0);
+    });
 });
 
 
@@ -44,6 +47,9 @@ describe('Test a03, testing the divide function', () => {
     });
     test("Division where the denominator is not a factor of the numerator", () => {
         expect(divide(25, 6)).toBeCloseTo(4.17);    
+    });
+    test("Division where the denominator is a factor of the numerator, decimals", () => {
+        expect(divide(25.5, 5.1)).toBe(5);    
     });
     test("Division by 0", () => {
         expect(() => {
@@ -76,9 +82,11 @@ describe('Test a04, testing the isDivisibleBy() function', () => {
 describe('Test a05, testing the areaOrPerimeter() function', () => {
     test("Two numbers that are the same - should return area, l*w", () => {
         expect(areaOrPerimeter(5,5)).toBe(25);
+        expect(areaOrPerimeter(10,10)).toBe(100);
     });
     test("Two numbers that are different - should return perimeter, 2(l+w)", () => {
         expect(areaOrPerimeter(3,4)).toBe(14);
+        expect(areaOrPerimeter(2,8)).toBe(20);
     });
 });
 
@@ -109,7 +117,7 @@ describe('Test a06, testing the gradeAssignment() function', () => {
     test("Testing using 3 negetive numbers, should return empty string", () => {
         expect(gradeAssignment(-90, -93, -95)).toBe('');
     });
-    test("Testing using floats, should still return A", () => {
+    test("Testing using floats, average above 90, should still return A", () => {
         expect(gradeAssignment(90.5, 93.6, 95.6)).toBe('A');
     });
 });
@@ -140,9 +148,11 @@ describe('Test a07, testing the disemvowel() function', () => {
 describe('Test a08, testing the strEndsWith() function', () => {
     test("Testing a string with the correct ending", () => {
         expect(strEndsWith('hello world', 'world')).toBeTruthy();
+        expect(strEndsWith('hello world', 'd')).toBeTruthy();
     });
     test("Testing a string with the incorrect ending", () => {
         expect(strEndsWith('hello world', 'wrong')).toBeFalsy();
+        expect(strEndsWith('hello world', 'hello')).toBeFalsy();
     });
 });
 
@@ -163,8 +173,14 @@ describe('Test a10, testing the numberToString() function', () => {
         expect(numberToString(5)).toEqual('5');
         expect(typeof numberToString(5)).toBe('string');
     });
+    test("Testing arrays", () => {
+        expect(numberToString([2])).toEqual('2');
+        expect(numberToString(['1', '2', '3'])).toEqual('1,2,3');
+        expect(numberToString([1, 2, 3])).toEqual('1,2,3');
+        expect(typeof numberToString([1, 2, 3])).toBe('string');
+    });
     test("Testing a string", () => {
         expect(numberToString('5')).toEqual('5');
-        expect(typeof numberToString(5)).toBe('string');
+        expect(typeof numberToString('5')).toBe('string');
     });
 });

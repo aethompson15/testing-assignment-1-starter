@@ -18,6 +18,9 @@ describe('Test b11, testing the largestValue() function', () => {
     test("Testing using an array with negetive values", () => {
         expect(largestValue([-1, -2, -3])).toBe(-1);
     });
+    test("Testing using an empty array", () => {
+        expect(largestValue([])).toBe();
+    });
 });
 
 //Test B12
@@ -34,22 +37,25 @@ describe('Test b12, testing the getEven() function', () => {
 });
 
 //Test B13 // function needs changing to not 
-/* describe('Test b13, testing the houseForSale() function', () => {
-    test("Testing the existing function properties", () => {
-        expect(houseForSale).toHaveReturnedWith('bath', true);
-        expect(houseForSale).toHaveReturnedWith('bedrooms', 4);
-        expect(houseForSale).toHaveReturnedWith('kitchen.amenities', ['oven', 'stove', 'washer']);
-        expect(houseForSale).toHaveReturnedWith('kitchen.area', 20);
-        expect(houseForSale).toHaveReturnedWith('kitchen.nice.oven');
+describe('Test b13, testing the houseForSale object', () => {
+    test("Testing the existing properties", () => {
+        expect(houseForSale).toHaveProperty('bath', true);
+        expect(houseForSale).toHaveProperty('bedrooms', 4);
+        expect(houseForSale).toHaveProperty('kitchen.amenities', ['oven', 'stove', 'washer']);
+        expect(houseForSale).toHaveProperty('kitchen.area', 20);
+        expect(houseForSale).toHaveProperty(['kitchen', 'nice.oven']);
     });
-    test("Testing non-existent function properties", () => {
-        expect(houseForSale).not.toHaveReturnedWith('jacuzzi');
-        expect(houseForSale).not.toHaveReturnedWith('bedrooms', 10);
-        expect(houseForSale).not.toHaveReturnedWith('kitchen.amenities', ['hotplate', 'breakfast bar', 'pantry']);
-        expect(houseForSale).not.toHaveReturnedWith('kitchen.area', 50);
-        expect(houseForSale).not.toHaveReturnedWith('kitchen.big.garden');
+    test("Testing non-existent properties", () => {
+        expect(houseForSale).not.toHaveProperty('jacuzzi');
+        expect(houseForSale).not.toHaveProperty('bedrooms', 10);
+        expect(houseForSale).not.toHaveProperty('kitchen.amenities', ['hotplate', 'breakfast bar', 'pantry']);
+        expect(houseForSale).not.toHaveProperty('kitchen.area', 50);
+        expect(houseForSale).not.toHaveProperty(['kitchen', 'big.garden']);
     });
-}); */
+    test("Testing the type", () => {
+        expect(typeof houseForSale).toBe('object');
+    });
+}); 
 
 //Test B14
 describe('Test b14, testing the sortNumbers() function', () => {
