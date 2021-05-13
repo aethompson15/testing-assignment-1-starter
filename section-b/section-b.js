@@ -17,13 +17,15 @@ function getEven(numbers) {
 }
 
 // B13 Test with toHaveProperty
-const houseForSale = {
+const houseForSale = () => {
+    return {
     bath: true,
     bedrooms: 4,
     kitchen: {
         amenities: ['oven', 'stove', 'washer'],
         area: 20,
         'nice.oven': true
+    }
     }
 }
 

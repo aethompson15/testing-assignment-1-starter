@@ -39,21 +39,21 @@ describe('Test b12, testing the getEven() function', () => {
 //Test B13 // function needs changing to not 
 describe('Test b13, testing the houseForSale object', () => {
     test("Testing the existing properties", () => {
-        expect(houseForSale).toHaveProperty('bath', true);
-        expect(houseForSale).toHaveProperty('bedrooms', 4);
-        expect(houseForSale).toHaveProperty('kitchen.amenities', ['oven', 'stove', 'washer']);
-        expect(houseForSale).toHaveProperty('kitchen.area', 20);
-        expect(houseForSale).toHaveProperty(['kitchen', 'nice.oven']);
+        expect(houseForSale()).toHaveProperty('bath', true);
+        expect(houseForSale()).toHaveProperty('bedrooms', 4);
+        expect(houseForSale()).toHaveProperty('kitchen.amenities', ['oven', 'stove', 'washer']);
+        expect(houseForSale()).toHaveProperty('kitchen.area', 20);
+        expect(houseForSale()).toHaveProperty(['kitchen', 'nice.oven']);
     });
     test("Testing non-existent properties", () => {
-        expect(houseForSale).not.toHaveProperty('jacuzzi');
-        expect(houseForSale).not.toHaveProperty('bedrooms', 10);
-        expect(houseForSale).not.toHaveProperty('kitchen.amenities', ['hotplate', 'breakfast bar', 'pantry']);
-        expect(houseForSale).not.toHaveProperty('kitchen.area', 50);
-        expect(houseForSale).not.toHaveProperty(['kitchen', 'big.garden']);
+        expect(houseForSale()).not.toHaveProperty('jacuzzi');
+        expect(houseForSale()).not.toHaveProperty('bedrooms', 10);
+        expect(houseForSale()).not.toHaveProperty('kitchen.amenities', ['hotplate', 'breakfast bar', 'pantry']);
+        expect(houseForSale()).not.toHaveProperty('kitchen.area', 50);
+        expect(houseForSale()).not.toHaveProperty(['kitchen', 'big.garden']);
     });
     test("Testing the type", () => {
-        expect(typeof houseForSale).toBe('object');
+        expect(typeof houseForSale()).toBe('object');
     });
 }); 
 
